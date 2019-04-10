@@ -49,6 +49,7 @@
     <Content Include="public\apple-icon-76x76.png" />
     <Content Include="public\browserconfig.xml" />
     <Content Include="public\css\admin-1.0.23.css" />
+    <Content Include="public\css\teste.css" />
     <Content Include="public\favicon-16x16.png" />
     <Content Include="public\favicon-32x32.png" />
     <Content Include="public\favicon-96x96.png" />
@@ -73,6 +74,7 @@
     <Content Include="public\lib\leaflet\js\images\marker-shadow.png" />
     <Content Include="public\lib\metis-menu\css\metis-menu-1.0.0.min.css" />
     <Content Include="public\manifest.json" />
+    <Content Include="public\teste.html" />
     <Content Include="scripts_sql\script.sql" />
     <Content Include="utils\geradorHash.ts" />
     <Content Include="public\favicon.ico" />
@@ -100,6 +102,8 @@
     <Content Include="views\layout-externo.ejs" />
     <Content Include="views\layout.ejs" />
     <Content Include="views\rodape.ejs" />
+    <Content Include="views\shared\erro.ejs" />
+    <Content Include="views\shared\nao-encontrado.ejs" />
     <Content Include="views\timeout\criar.ejs" />
     <Content Include="views\timeout\listar.ejs" />
     <Content Include="views\timeout\mapa.ejs" />
@@ -168,6 +172,7 @@
     <Folder Include="routes\api\" />
     <Folder Include="views\" />
     <Folder Include="views\home\" />
+    <Folder Include="views\shared\" />
     <Folder Include="views\tutorial\" />
     <Folder Include="views\timeout\" />
   </ItemGroup>
