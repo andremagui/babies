@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS protivitiSocial;
-USE protivitiSocial;
+CREATE DATABASE IF NOT EXISTS cresceuPerdeu;
+USE cresceuPerdeu;
 
 -- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root'
 
@@ -18,6 +18,9 @@ CREATE TABLE usuario (
 	id int NOT NULL AUTO_INCREMENT,
 	login varchar(50) NOT NULL,
 	nome varchar(100) NOT NULL,
+	email varchar(100) NOT NULL,
+	endereco varchar(100) NOT NULL,
+	cep varchar(40) NOT NULL,
 	perfil int NOT NULL,
 	senha varchar(100) NOT NULL,
 	token char(32) DEFAULT NULL,
@@ -26,69 +29,5 @@ CREATE TABLE usuario (
 	CONSTRAINT perfil_FK FOREIGN KEY (perfil) REFERENCES perfil (id) ON DELETE CASCADE
 );
 
-INSERT INTO usuario (login, nome, perfil, senha) VALUES
-('ADMIN','ADMINISTRADOR',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN'),
-('CARLOS.NEVES','CARLOS RAFAEL',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN'),
-('FELIPE.ALVINO','FELIPE ALVINO',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN'),
-('DANIEL.SHIMODA','DANIEL SHIMODA',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN'),
-('CAIO.CATARINO','CAIO CATARINO',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN'),
-('ANDRE.AGUIAR','ANDRÉ AGUIAR',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN'),
-('VINICIUS.JUNQUEIRA','VINÍCIUS JUNQUEIRA',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN'),
-('LUCAS.ZILLIG','LUCAS ZILLIG',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN'),
-('BRUNA.RODRIGUES','BRUNA RODRIGUES',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN'),
-('RAFAEL.PIGNATARO','RAFAEL PIGNATARO',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN'),
-('GUILHERME.LARREA','GUILHERME LARREA',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN');
-
-CREATE TABLE administrativo (
-  id INT NOT NULL AUTO_INCREMENT,
-  nome VARCHAR(50) NOT NULL,
-  link VARCHAR(100) NOT NULL,
-  descricao VARCHAR(150) NOT NULL,
-  PRIMARY KEY (id),
-  INDEX administrativo_nome_IX (nome ASC)
-);
-
-CREATE TABLE alocacao (
-  id INT NOT NULL AUTO_INCREMENT,
-  nome VARCHAR(50) NOT NULL,
-  link VARCHAR(100) NOT NULL,
-  descricao VARCHAR(150) NOT NULL,
-  PRIMARY KEY (id),
-  INDEX alocacao_nome_IX (nome ASC)
-);
-
-CREATE TABLE inovacao (
-  id INT NOT NULL AUTO_INCREMENT,
-  nome VARCHAR(50) NOT NULL,
-  link VARCHAR(100) NOT NULL,
-  descricao VARCHAR(150) NOT NULL,
-  PRIMARY KEY (id),
-  INDEX inovacao_nome_IX (nome ASC)
-);
-
-CREATE TABLE pec (
-  id INT NOT NULL AUTO_INCREMENT,
-  nome VARCHAR(50) NOT NULL,
-  link VARCHAR(100) NOT NULL,
-  descricao VARCHAR(150) NOT NULL,
-  PRIMARY KEY (id),
-  INDEX pec_nome_IX (nome ASC)
-);
-
-CREATE TABLE carreiraCurriculo (
-  id INT NOT NULL AUTO_INCREMENT,
-  nome VARCHAR(50) NOT NULL,
-  link VARCHAR(100) NOT NULL,
-  descricao VARCHAR(150) NOT NULL,
-  PRIMARY KEY (id),
-  INDEX carreiraCurriculo_nome_IX (nome ASC)
-);
-
-CREATE TABLE carreiraCapacitacaoTreinamentos (
-  id INT NOT NULL AUTO_INCREMENT,
-  nome VARCHAR(50) NOT NULL,
-  link VARCHAR(100) NOT NULL,
-  descricao VARCHAR(150) NOT NULL,
-  PRIMARY KEY (id),
-  INDEX carreiraCapacitacaoTreinamentos_nome_IX (nome ASC)
-);
+INSERT INTO usuario (login, nome, email, endereco, CEP, perfil, senha) VALUES
+('ADMIN','ADMINISTRADOR','admin@admin.com', 'Rua Joaquim Tavora 1240', '04015-013', 1, 'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN');

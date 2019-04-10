@@ -17,9 +17,13 @@ export = class Usuario {
 
 	public id: number;
 	public login: string;
-	public nome: string;
+    public nome: string;
+    public email: string;
+    public endereco: string;
+    public cep: string;
 	public perfil: number;
 	public senha: string;
+
 
 	// Utilizados apenas no cache
 	private cookieStr: string;
@@ -51,7 +55,7 @@ export = class Usuario {
 				usuario = null;
 
 				await Sql.conectar(async (sql: Sql) => {
-					let rows = await sql.query("select id, login, nome, perfil, token from usuario where id = ?", [id]);
+					let rows = await sql.query("select id, login, nome, email, endereco, cep, perfil, token from usuario where id = ?", [id]);
 					let row;
 
 					if (!rows || !rows.length || !(row = rows[0]))
@@ -66,7 +70,10 @@ export = class Usuario {
 					let u = new Usuario();
 					u.id = id;
 					u.login = row.login as string;
-					u.nome = row.nome as string;
+                    u.nome = row.nome as string;
+                    u.email = row.email as string;
+                    u.endereco = row.endererco as string;
+                    u.cep = row.cep as string;
 					u.perfil = row.perfil as number;
 					u.cookieStr = cookieStr;
 					u.admin = (u.perfil === Usuario.PerfilAdmin);
@@ -120,7 +127,10 @@ export = class Usuario {
 			u = new Usuario();
 			u.id = row.id;
 			u.login = login;
-			u.nome = row.nome as string;
+            u.nome = row.nome as string;
+          //  u.email = row.email as string;
+          //  u.endereco = row.endererco as string;
+          //  u.cep = row.cep as string;
 			u.perfil = row.perfil as number;
 			u.cookieStr = cookieStr;
 			u.admin = (u.perfil === Usuario.PerfilAdmin);
