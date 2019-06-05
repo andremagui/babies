@@ -46,7 +46,7 @@ router.post("/criar", wrap(async (req: express.Request, res: express.Response) =
 	if (!u)
 		return;
 	u = req.body as Usuario;
-	u.perfil = parseInt(req.body.perfil);
+	u.login = (req.body.login);
 	jsonRes(res, 400, u ? await Usuario.criar(u) : "Dados inválidos");
 }));
 
@@ -54,11 +54,11 @@ router.post("/alterar", wrap(async (req: express.Request, res: express.Response)
 	let u = await Usuario.cookie(req, res, true);
 	if (!u)
 		return;
-	let id = u.id;
+	let id = u.idUsuario;
 	u = req.body as Usuario;
-	u.id = parseInt(req.body.id);
-	u.perfil = parseInt(req.body.perfil);
-	jsonRes(res, 400, (u && !isNaN(u.id)) ? (id === u.id ? "Um usuário não pode alterar a si próprio" : await Usuario.alterar(u)) : "Dados inválidos");
+	u.idUsuario = parseInt(req.body.id);
+	u.login = (req.body.login);
+	jsonRes(res, 400, (u && !isNaN(u.idUsuario)) ? (id === u.idUsuario ? "Um usuário não pode alterar a si próprio" : await Usuario.alterar(u)) : "Dados inválidos");
 }));
 
 router.get("/excluir", wrap(async (req: express.Request, res: express.Response) => {
@@ -66,7 +66,7 @@ router.get("/excluir", wrap(async (req: express.Request, res: express.Response) 
 	if (!u)
 		return;
 	let id = parseInt(req.query["id"]);
-	jsonRes(res, 400, isNaN(id) ? "Dados inválidos" : (id === u.id ? "Um usuário não pode excluir a si próprio" : await Usuario.excluir(id)));
+    jsonRes(res, 400, isNaN(id) ? "Dados inválidos" : (id === u.idUsuario ? "Um usuário não pode excluir a si próprio" : await Usuario.excluir(id)));
 }));
 
 router.get("/redefinirSenha", wrap(async (req: express.Request, res: express.Response) => {
@@ -74,7 +74,7 @@ router.get("/redefinirSenha", wrap(async (req: express.Request, res: express.Res
 	if (!u)
 		return;
 	let id = parseInt(req.query["id"]);
-	jsonRes(res, 400, isNaN(id) ? "Dados inválidos" : (id === u.id ? "Um usuário não pode redefinir sua própria senha" : await Usuario.redefinirSenha(id)));
+    jsonRes(res, 400, isNaN(id) ? "Dados inválidos" : (id === u.idUsuario ? "Um usuário não pode redefinir sua própria senha" : await Usuario.redefinirSenha(id)));
 }));
 
 export = router;

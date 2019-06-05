@@ -54,17 +54,9 @@
     <Content Include="public\favicon-32x32.png" />
     <Content Include="public\favicon-96x96.png" />
     <Content Include="public\favicon.png" />
-    <Content Include="public\imagens\assinaturas.png" />
     <Content Include="public\imagens\D4wM500.png" />
-    <Content Include="public\imagens\ICTS.svg" />
-    <Content Include="public\imagens\icts_circle.svg" />
-    <Content Include="public\imagens\icts_circle_blue.svg" />
-    <Content Include="public\imagens\icts_circle_white.svg" />
-    <Content Include="public\imagens\ICTS_WHITE.svg" />
     <Content Include="public\imagens\loading-grey-t.gif" />
     <Content Include="public\imagens\login.svg" />
-    <Content Include="public\imagens\myprotiviti.svg" />
-    <Content Include="public\imagens\myprotiviti_white.svg" />
     <Content Include="public\imagens\password.svg" />
     <Content Include="public\imagens\white_circle.svg" />
     <Content Include="public\lib\bootstrap\css\bootstrap-1.0.18.min.css" />
@@ -92,6 +84,8 @@
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="utils\jsonRes.ts" />
+    <Content Include="views\cadastro\alterar.ejs" />
+    <Content Include="views\cadastro\listar.ejs" />
     <Content Include="views\home\perfil.ejs" />
     <Content Include="views\home\acesso.ejs" />
     <Content Include="views\layout-vazio.ejs" />
@@ -104,11 +98,6 @@
     <Content Include="views\rodape.ejs" />
     <Content Include="views\shared\erro.ejs" />
     <Content Include="views\shared\nao-encontrado.ejs" />
-    <Content Include="views\timeout\criar.ejs" />
-    <Content Include="views\timeout\listar.ejs" />
-    <Content Include="views\timeout\mapa.ejs" />
-    <Content Include="views\tutorial\alterar.ejs" />
-    <Content Include="views\tutorial\listar.ejs" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config" />
     <TypeScriptCompile Include="app.ts" />
@@ -121,21 +110,19 @@
     <TypeScriptCompile Include="infra\upload.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="models\enums\tipoTutorial.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
+    <TypeScriptCompile Include="models\cadastro.ts" />
     <TypeScriptCompile Include="models\usuario.ts" />
+    <TypeScriptCompile Include="routes\api\cadastro.ts" />
     <TypeScriptCompile Include="routes\api\usuario.ts" />
-    <TypeScriptCompile Include="routes\timeout.ts" />
-    <TypeScriptCompile Include="routes\usuario.ts" />
+    <TypeScriptCompile Include="routes\cadastro.ts" />
     <TypeScriptCompile Include="routes\home.ts" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
+    <TypeScriptCompile Include="routes\usuario.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="models\" />
     <Folder Include="infra\" />
-    <Folder Include="models\enums\" />
     <Folder Include="public\lib\leaflet\js\" />
     <Folder Include="public\lib\leaflet\css\" />
     <Folder Include="public\lib\leaflet\js\images\" />
@@ -171,10 +158,9 @@
     <Folder Include="routes\" />
     <Folder Include="routes\api\" />
     <Folder Include="views\" />
+    <Folder Include="views\cadastro\" />
     <Folder Include="views\home\" />
     <Folder Include="views\shared\" />
-    <Folder Include="views\tutorial\" />
-    <Folder Include="views\timeout\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="public\js\admin-1.0.5.js" />

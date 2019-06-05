@@ -91,10 +91,12 @@ app.use((req: express.Request, res: express.Response, next: NextFunction) => {
 // Cadastros simples
 app.use("/", require("./routes/home"));
 app.use("/usuario", require("./routes/usuario"));
-app.use("/timeout", require("./routes/timeout"));
+app.use("/cadastro", require("./routes/cadastro"));
+app.use("/usuario", require("./routes/usuario"));
 
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
+app.use("/api/cadastro", require("./routes/api/cadastro"));
 
 // Depois de registrados todos os caminhos das rotas e seus
 // tratadores, registramos os tratadores que serão chamados
