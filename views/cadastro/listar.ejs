@@ -42,10 +42,10 @@
             { title: "Estado", render: encode, data: "estado" },
             { title: "Valor", data: "valor" },
             { title: "Faixa Etária", render: encode, data: "faixaetaria" },
-            { title: "Tipo de transação", render: encode, data: "acao" },
+            { title: "Objetivo", render: encode, data: "acao" },
             { title: "Peso", data: "peso" },
             { title: "Gênero do produto", render: encode, data: "genero" },
-            { title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/cadastro/alterar?idCadastro=" + row.idCadastro + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
+            { title: "", "class": "col-min", searchable: false, orderable: false, data: "idCadastro", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/cadastro/alterar?idCadastro=" + row.idCadastro + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
         ],
         data: <%- lista %>
 	});
