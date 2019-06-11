@@ -19,41 +19,34 @@ export = class Cadastro {
 	public static readonly caminhoRelativo = "dados/cadastro";
 	public static readonly caminhoAbsolutoExterno = "/api/cadastro/foto";
 
-    private static validar(c: Cadastro, criacao: boolean): string {
+    private static validar(c: Cadastro): string {
         if (c.idUsuario <= 0)
             return "Usuário inválido";
 
         c.descricao = (c.descricao || "").trim().toUpperCase();
         if (c.descricao.length < 3 || c.descricao.length > 100)
-            return "Descrição do item inválida";
+            return "Descrição inválida";
 
         if (c.tipo > 3 || c.tipo < 1)
-            return "Escolha inválida";
+            return "Tipo inválido";
 
         if (c.estado > 4 || c.estado < 1)
-            return "Escolha inválida";
+            return "Estado inválido";
 
         if (c.valor <= 0)
-            return "Escolha inválida";
+            return "Valor inválida";
 
         if (c.faixaetaria > 10 || c.faixaetaria < 1)
-            return "Escolha inválida";
+            return "Faixa etária inválida";
 
         if (c.acao > 2 || c.acao < 1)
-            return "Escolha inválida";
+            return "Objetivo inválido";
 
         if (c.peso > 20 || c.peso < 1)
-            return "Escolha inválida";
+            return "Peso inválido";
 
         if (c.genero > 2 || c.genero < 1)
-            return "Escolha inválida";
-
-		if (criacao) {
-			// Só valida a extensão do arquivo durante a criação, pois durante a alteração,
-			// a extensão do arquivo não muda.
-			if (!c.extensao)
-				return "Extensão de arquivo inválida";
-		}
+            return "Gênero inválido";
 
 		return null;
 	}
@@ -93,7 +86,7 @@ export = class Cadastro {
 		//}
 
 		let res: string;
-		if ((res = Cadastro.validar(c, true)))
+		if ((res = Cadastro.validar(c)))
 			return res;
 
 		await Sql.conectar(async (sql: Sql) => {
@@ -103,7 +96,7 @@ export = class Cadastro {
             try {
                 await sql.query("insert into cadastro (idUsuario, descricao, tipo, estado, valor, faixaetaria, acao, peso, genero) values (?, ?, ?, ?, ?, ?, ?, ?, ?)", [u.idUsuario, c.descricao, c.tipo, c.estado, c.valor, c.faixaetaria, c.acao, c.peso, c.genero]);
 				// Obtém o id do último cadastro inserido
-				c.idCadastro = await sql.scalar("select last_insert_idCadastro()") as number;
+				c.idCadastro = await sql.scalar("select last_insert_id()") as number;
 
 				// Chegando aqui, significa que a inclusão foi bem sucedida.
 				// Logo, podemos tentar criar o arquivo físico. Se a criação do
@@ -126,7 +119,7 @@ export = class Cadastro {
 
 	public static async alterar(c: Cadastro): Promise<string> {
 		let res: string;
-		if ((res = Cadastro.validar(c, false)))
+		if ((res = Cadastro.validar(c)))
 			return res;
 
 		await Sql.conectar(async (sql: Sql) => {

@@ -26,6 +26,16 @@ router.post("/criar", wrap(async (req: express.Request, res: express.Response) =
     if (!u)
         return;
     let c = req.body as Cadastro;
+    if (c) {
+        c.idUsuario = u.idUsuario;
+        c.tipo = parseInt(req.body.tipo);
+        c.estado = parseInt(req.body.estado);
+        c.valor = parseInt(req.body.valor);
+        c.faixaetaria = parseInt(req.body.faixaetaria);
+        c.acao = parseInt(req.body.acao);
+        c.peso = parseInt(req.body.peso);
+        c.genero = parseInt(req.body.genero);
+    }
 
     let erro = await Cadastro.criar(u, c);
     if (erro) {
@@ -41,8 +51,17 @@ router.post("/alterar", wrap(async (req: express.Request, res: express.Response)
     if (!u)
         return;
     let c = req.body as Cadastro;
-    if (c)
+    if (c) {
         c.idCadastro = parseInt(req.body.idCadastro);
+        c.idUsuario = u.idUsuario;
+        c.tipo = parseInt(req.body.tipo);
+        c.estado = parseInt(req.body.estado);
+        c.valor = parseInt(req.body.valor);
+        c.faixaetaria = parseInt(req.body.faixaetaria);
+        c.acao = parseInt(req.body.acao);
+        c.peso = parseInt(req.body.peso);
+        c.genero = parseInt(req.body.genero);
+    }
 
     if (c && !isNaN(c.idCadastro)) {
         let erro = await Cadastro.alterar(c);

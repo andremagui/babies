@@ -1,21 +1,88 @@
-﻿
-<div class="row">
-	<div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-		<form id="form" class="panel panel-default" action="#">
-			<div class="panel-heading">Cadastro de produto</div>
-			<div class="panel-body no-bottom">
-				<input type="hidden" id="id" name="id" value="<%=(item ? item.id : 0) %>" />
-				<div class="form-group">
-					<label for="nome">Nome</label>
-					<input id="nome" name="nome" maxlength="50" class="form-control upper" type="text" spellcheck="false" value="<%=(item ? item.nome : '') %>" />
-				</div>
+﻿<div class="row">
+    <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <form id="form" class="panel panel-default" action="#">
+            <div class="panel-heading">Cadastrar Novo Produto</div>
+            <div class="panel-body no-bottom">
+                <input type="hidden" id="idCadastro" name="idCadastro" value="<%=(item ? item.idCadastro : 0) %>" />
+                
+                <div class="form-group">
+                    <label for="descricao">Descrição do produto</label>
+                    <input id="descricao" name="descricao" maxlength="100" class="form-control upper" type="text" spellcheck="false" value="<%=(item ? item.descricao : '') %>" />
+                </div>
 
+                <div class="form-group">
+                    <label for="tipo">Tipo de produto</label>
+                    <select id="tipo" name="tipo" class="form-control" size="1">
+                        <option value="">SELECIONE...</option>
+                        <option value="1" <%=(item && item.tipo == 1 ? 'selected="selected"' : '')%>>Acessórios</option>
+                        <option value="2" <%=(item && item.tipo == 2 ? 'selected="selected"' : '')%>>Brinquedos</option>
+                        <option value="3" <%=(item && item.tipo == 3 ? 'selected="selected"' : '')%>>Roupas</option>
+                    </select>
+                </div>
 
-			<div class="panel-footer">
-				<input value="<%=(item ? 'Salvar Alterações' : 'Criar Produto') %>" class="btn btn-primary btn-lg btn-block" type="submit" />
-			</div>
-		</form>
-	</div>
+                <div class="form-group">
+                    <label for="estado">Estado do produto</label>
+                    <select id="estado" name="estado" class="form-control" size="1">
+                        <option value="">SELECIONE...</option>
+                        <option value="1" <%=(item && item.estado == 1 ? 'selected="selected"' : '')%>>Novo</option>
+                        <option value="2" <%=(item && item.estado == 2 ? 'selected="selected"' : '')%>>Seminovo</option>
+                        <option value="3" <%=(item && item.estado == 3 ? 'selected="selected"' : '')%>>Usado</option>
+                        <option value="4" <%=(item && item.estado == 4 ? 'selected="selected"' : '')%>>Mal-estado</option>
+                    </select>
+                </div>
+
+                 <div class="form-group">
+                    <label for="valor">Valor Do Produto</label>
+                    <input id="valor" name="valor" class="form-control upper" type="number" spellcheck="false" value="<%=(item ? item.valor : '') %>" />
+                </div>
+
+                 <div class="form-group">
+                    <label for="faixaetaria">Faixa etária da criança</label>
+                    <select id="faixaetaria" name="faixaetaria" class="form-control" size="1">
+                        <option value="">SELECIONE...</option>
+                        <option value="1" <%=(item && item.faixaetaria == 1 ? 'selected="selected"' : '')%>>1 - 3 meses</option>
+                        <option value="2" <%=(item && item.faixaetaria == 2 ? 'selected="selected"' : '')%>>4 - 6 meses</option>
+                        <option value="3" <%=(item && item.faixaetaria == 3 ? 'selected="selected"' : '')%>>7 - 9 meses</option>
+                        <option value="4" <%=(item && item.faixaetaria == 4 ? 'selected="selected"' : '')%>>10 - 12 meses</option>
+                        <option value="5" <%=(item && item.faixaetaria == 5 ? 'selected="selected"' : '')%>>1 - 2 anos</option>
+                        <option value="6" <%=(item && item.faixaetaria == 6 ? 'selected="selected"' : '')%>>3 - 4 anos</option>
+                        <option value="7" <%=(item && item.faixaetaria == 7 ? 'selected="selected"' : '')%>>5 - 6 anos</option>
+                        <option value="8" <%=(item && item.faixaetaria == 8 ? 'selected="selected"' : '')%>>7 - 8 anos</option>
+                        <option value="9" <%=(item && item.faixaetaria == 9 ? 'selected="selected"' : '')%>>9 - 10 anos</option>
+                        <option value="10" <%=(item && item.faixaetaria == 10 ? 'selected="selected"' : '')%>>11 - 12 anos</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="acao">Objetivo</label>
+                    <select id="acao" name="acao" class="form-control" size="1">
+                        <option value="">SELECIONE...</option>
+                        <option value="1" <%=(item && item.acao == 1 ? 'selected="selected"' : '')%>>Venda</option>
+                        <option value="2" <%=(item && item.acao == 2 ? 'selected="selected"' : '')%>>Troca</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="peso">Peso do produto</label>
+                    <input id="peso" name="peso" class="form-control upper" type="number" spellcheck="false" value="<%=(item ? item.peso : '') %>" />
+                </div>
+
+                <div class="form-group">
+                    <label for="genero">Gênero do produto</label>
+                    <select id="genero" name="genero" class="form-control" size="1">
+                        <option value="">SELECIONE...</option>
+                        <option value="1" <%=(item && item.genero == 1 ? 'selected="selected"' : '')%>>Masculino</option>
+                        <option value="2" <%=(item && item.genero == 2 ? 'selected="selected"' : '')%>>Feminino</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <input value="Criar" class="btn btn-primary btn-lg btn-block" type="submit" />
+            </div>
+
+        </form>
+    </div>
 </div>
 
 <%- contentFor("scripts") %>
@@ -25,10 +92,40 @@
 
 	$("#form").validate({
 		rules: {
-			nome: {
+			descricao: {
 				required: true,
 				minlength: 3,
 				maxlength: 100
+            },
+
+            tipo: {
+				required: true
+            },
+
+            estado: {
+				required: true
+            },
+
+            valor: {
+                required: true,
+                number: true
+            },
+
+            faixaetaria: {
+				required: true
+            },
+
+            acao: {
+				required: true
+            },
+
+            peso: {
+                required: true,
+                number:true
+            },
+
+            genero: {
+				required: true
 			},
 		},
 
@@ -49,9 +146,7 @@
 
 			//<% } else { %>
 
-			// Estamos utilizando new FormData(form), e não apenas o form, para enviar o arquivo.
-			// Se não formos enviar arquivos, não precisa utilizar o FormData!
-			JsonWebApi.postFormData("/api/cadastro/criar", new FormData(form), function (response) {
+			JsonWebApi.postFormData("/api/cadastro/criar", form, function (response) {
 				if (response.success) {
 					form.reset();
 					$("#form").validate().resetForm();
