@@ -342,7 +342,7 @@ i.fa-nomargin {
 	}
 
 .navbar-default {
-	background-color: #4080a4;
+    background-color: #A8CCFB;
 }
 
 .nav > li > a:hover {
@@ -457,7 +457,7 @@ i.fa-nomargin {
     .stars1 > label:before, .stars2 > label:before, .stars3 > label:before, .stars4 > label:before {
         margin: 5px;
         font-size: 1.25em;
-        font-family: FontAwesome;
+        font-family: 'Amatic SC';
         display: inline-block;
         content: "\f005";
     }
@@ -465,7 +465,7 @@ i.fa-nomargin {
     .cash > label:before {
         margin: 5px;
         font-size: 1.25em;
-        font-family: FontAwesome;
+        font-family: 'Amatic SC';
         display: inline-block;
         content: "\f155";
     }
@@ -528,3 +528,7 @@ i.fa-nomargin {
         .cash > input:checked ~ label:hover ~ label {
             color: #FFED85;
         }
+
+.font-amatic{
+    font-family: 'Amatic SC';
+}

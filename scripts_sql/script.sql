@@ -81,7 +81,7 @@ INSERT INTO acao (descricao) VALUES
 ('Venda'),
 ('Troca');
 
-CREATE TABLE cadastro_venda (
+CREATE TABLE cadastro (
 	idCadastro int NOT NULL AUTO_INCREMENT,
 	idUsuario int NOT NULL,
 	descricao varchar(100) NOT NULL,
@@ -101,5 +101,5 @@ CREATE TABLE cadastro_venda (
 	CONSTRAINT genero_FK FOREIGN KEY (genero) REFERENCES genero (id) ON DELETE CASCADE
 );
 
-INSERT INTO cadastro_venda (idUsuario, descricao, tipo, estado, valor, faixaetaria, acao, peso, genero) VALUES
+INSERT INTO cadastro (idUsuario, descricao, tipo, estado, valor, faixaetaria, acao, peso, genero) VALUES
 (1, 'Shorts Preto Kawabanga', 3, 2, 5, 5, 1, 0.100, 1);

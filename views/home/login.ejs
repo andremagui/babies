@@ -1,57 +1,158 @@
-﻿<form method="post" action="./">
-	<div id="main">
-        <div id="CircleLogo"><img alt="CircleLogo" src="/imagens/icts_circle.SVG"/></div>
+﻿<div class="container-fluid">
+    <div class="text-center">
+        <img alt="Logo" src="/imagens/logo.png" style="max-height: 170px; padding-top: 30px; padding-bottom: 30px;" />
+    </div>
 
-        <div id="texto1">
-            Acesse sua área de contribuinte
-        </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-offset-3">   
+            <div class="panel <%= (mensagem ? 'panel' : 'panel-default' ) %>">
+                <div class="panel-heading">
+                    <div class="tab">
+                  <button class="tablinks" onclick="openTab(event, 'existente')" id="defaultOpen">Já sou cliente</button>
+                  <button class="tablinks" onclick="openTab(event, 'novo')">Cliente novo</button>
+                </div>
 
-        <div id="texto2">
-                    ou <b>contate o suporte</b> caso ainda não esteja registrado.
-        </div>
+                <div id="existente" class="tabcontent">
+                     <form method="post" action="./">
 
-		<div class="panel <%= (mensagem ? 'panel' : 'panel-default' ) %>">	
-      <div class="panel-heading">
-				<div id="panel-heading-img">
-					<img id="Logo" alt="Logo" src="/imagens/ICTS.SVG"/>
-                    <img id="BlueCircle" alt="BlueCircle" src="/imagens/icts_circle_blue.SVG"/>
-                    <img id="MyProtiviti" alt="MyProtiviti" src="/imagens/myprotiviti.SVG";/>
-				</div>
-			</div>
-			
-      <div class="panel-body">
-				<div id="divUser" class="form-group" style="color:#666666">
-					<label for="login">Usuário:</label>
-                    <img alt="Login" src="/imagens/login.SVG" height="auto" width="20px" style="position: relative; left: -40px; top: 38px;"/>
-					<input name="login" type="text" id="login" class="form-control text-uppercase" spellcheck="false" />
-				</div>
+                    <div class="panel-body">
+                        <div id="divUser" class="form-group" style="color: #666666">
+                            <label for="login">Usuário:</label>
+                            <img alt="Login" src="/imagens/login.png" style="max-width: 20px; position: relative; left: -45px; top: 36.5px" />
+                            <input name="login" type="text" id="login" class="form-control text-uppercase espaco-icon fonte-grande" spellcheck="false"/>
+                        </div>
 
-				<div id="divPass" class="form-group" style="color:#666666">
-					<label for="senha">Senha:</label>
-                    <img alt="Senha" src="/imagens/password.SVG" height="auto" width="18px" style="position: relative; left: -30px; top: 37px;"/>
-					<input name="senha" type="password" id="senha" class="form-control" />
-				</div>
-				
-        <% if (mensagem) { %>
-				<div id="lblMessage" class="alert"><%=mensagem %></div>
-				<% } %>
-			</div>
-			
-      <div class="panel-footer">
-				<input type="submit" value="Entrar" class="btn btn-primary btn-lg btn-block" />
-            <div style="text-align: center;  padding: 15px 0px 40px 0px">
-                <b><a style ="color: #545455" href=" ">Esqueceu sua senha?</a></b>
+                        <div id="divPass" class="form-group" style="color: #666666">
+                            <label for="senha">Senha:</label>
+                            <img alt="Senha" src="/imagens/password.png" style="max-width: 20px; position: relative; left: -33px; top: 36px;" />
+                            <input name="senha" type="password" id="senha" class="form-control espaco-icon" />
+                        </div>
+
+                        <% if (mensagem) { %>
+				        <div id="lblMessage" class="alert"><%=mensagem %></div>
+                        <% } %>
+                    </div>
+
+                    <div class="panel-footer">
+                        <input type="submit" value="Entrar" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; font-size: 24px"/>
+                        <div style="text-align: center; padding: 13px 0px 13px 0px">
+                            <b><a style="color: #545455" href=" ">Esqueceu sua senha?</a></b>
+                        </div>
+                    </div>
+
+                </form>
+                </div>
+
+                <div id="novo" class="tabcontent">
+                     <form method="post" action="./">
+
+                    <div class="panel-body">
+                        <div id="divUser2" class="form-group" style="color: #666666">
+                            <label for="login">Usuário:</label>
+                            <input name="login" type="text" id="login2" class="form-control text-uppercase fonte-grande" spellcheck="false" />
+                        </div>
+
+                        <div id="divNome" class="form-group" style="color: #666666">
+                            <label for="nome">Nome:</label>
+                            <input name="nome" type="text" id="nome" class="form-control text-uppercase fonte-grande" spellcheck="false" />
+                        </div>
+
+                        <div id="divEmail" class="form-group" style="color: #666666">
+                            <label for="email">Email:</label>
+                            <input name="email" type="email" id="email" class="form-control text-uppercase fonte-grande" spellcheck="false" />
+                        </div>
+
+                        <div id="divEndereco" class="form-group" style="color: #666666">
+                            <label for="endereco">Endereço:</label>
+                            <input name="endereco" type="text" id="endereco" class="form-control text-uppercase fonte-grande" spellcheck="false" />
+                        </div>
+
+                        <div id="divCEP" class="form-group" style="color: #666666">
+                            <label for="cep">CEP:</label>
+                            <input name="cep" type="number" id="cep" class="form-control text-uppercase fonte-grande" spellcheck="false" />
+                        </div>
+
+                        <div id="divPass2" class="form-group" style="color: #666666">
+                            <label for="senha2">Senha:</label>
+                            <input name="senha2" type="text" id="senha2" class="form-control fonte-grande" />
+                        </div>
+
+                        <% if (mensagem) { %>
+				        <div id="lblMessage2" class="alert"><%=mensagem %></div>
+                        <% } %>
+                    </div>
+
+                    <div class="panel-footer">
+                        <input type="submit" value="Cadastrar" class="btn btn-primary btn-lg btn-block" style="margin: 13px 0px 13px 0px; font-size: 24px" />
+                    </div>
+
+                </form>
+                    </div>
+                </div>
             </div>
-			</div>
-		</div>
-	</div>
-</form>
-
-<!--"DESCOBERTO" por Mano Rapharx DJ da Mangueira
-    n sei pra q isso serve ainda
+        </div>
+    </div>
+</div>
+<!--
 <%- contentFor=("styles") %> 
--->
+    -->
+<style type="text/css">
+    body {
+        font-family: "Amatic";
+        font-size: 24px;
+        line-height: 1.42857143;
+        color: #333;
+        background-color: #A8CCFB;
+    }
+    .btn-primary {
+        color: #fff;
+        background-color: #a8b2ff;
+        border-color: #2e6da4;
+    }
+    .espaco-icon{
+        padding-left: 37px;
+    }
+    .fonte-grande{
+        font-size: 19px;
+    }
+    .btn-primary:hover{
+        background-color: #a8b2ff;
+    }
+    .tab {
+      overflow: hidden;
+      background-color: #f5f5f5;
+    }
+
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 24px;
+    }
+
+    .tab button:hover {
+      background-color: #ddd;
+    }
+
+    .tab button.active {
+      background-color: #ccc;
+    }
+
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;  
+      border-top: none;
+    }
+    .panel-heading {
+        padding: 0px 0px 0px 0px;
+    }
+</style>
 <!--------------------------------------------------------------->
+<!--
 <style>
     body {
         background-image: linear-gradient(to right, #4e809c, #5d7b99);
@@ -160,10 +261,10 @@
         transition: border-color ease-in-out .2s,box-shadow ease-in-out .2s;
     }
 
-    .form-control:focus {
-        border-color: #bbc1f3;
-        box-shadow: 0 1px 3px rgba(0,0,0,0);
-    }
+        .form-control:focus {
+            border-color: #bbc1f3;
+            box-shadow: 0 1px 3px rgba(0,0,0,0);
+        }
 
     .panel-footer {
         background-color: #ffffff;
@@ -380,10 +481,10 @@
         transition: border-color ease-in-out .2s,box-shadow ease-in-out .2s;
     }
 
-    .form-control:focus {
-        border-color: #bbc1f3;
-        box-shadow: 0 1px 3px rgba(0,0,0,0);
-    }
+        .form-control:focus {
+            border-color: #bbc1f3;
+            box-shadow: 0 1px 3px rgba(0,0,0,0);
+        }
 
     input:-webkit-autofill,
     input:-webkit-autofill:hover,
@@ -565,3 +666,22 @@
         }
     }
 </style>
+-->
+<script>
+function openTab(evt, tab) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tab).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
