@@ -224,8 +224,8 @@ export = class Usuario {
 			return "Login inválido";
 
 		await Sql.conectar(async (sql: Sql) => {
-			try {
-				await sql.query("insert into usuario (login, nome, tipo, senha) values (?, ?, ?, ?)", [u.login, u.nome, Usuario.HashSenhaPadrao]);
+            try {
+                await sql.query("insert into usuario (login, nome, email, endereco, cep, senha) values (?, ?, ?, ?, ?, ?)", [u.login, u.nome, u.email, u.endereco, u.cep, await GeradorHash.criarHash(u.senha)]);
 			} catch (e) {
 				if (e.code && e.code === "ER_DUP_ENTRY")
 					res = `O login "${u.login}" já está em uso`;

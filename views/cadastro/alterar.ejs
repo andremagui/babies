@@ -27,7 +27,7 @@
                         <option value="1" <%=(item && item.estado == 1 ? 'selected="selected"' : '')%>>Novo</option>
                         <option value="2" <%=(item && item.estado == 2 ? 'selected="selected"' : '')%>>Seminovo</option>
                         <option value="3" <%=(item && item.estado == 3 ? 'selected="selected"' : '')%>>Usado</option>
-                        <option value="4" <%=(item && item.estado == 4 ? 'selected="selected"' : '')%>>Mal-estado</option>
+                        <option value="4" <%=(item && item.estado == 4 ? 'selected="selected"' : '')%>>Mau Estado</option>
                     </select>
                 </div>
 
@@ -78,7 +78,7 @@
 
             </div>
             <div class="panel-footer">
-                <input value="Criar" class="btn btn-primary btn-lg btn-block" type="submit" />
+                <input value="<%=(item ? 'Salvar' : 'Criar') %>" class="btn btn-primary btn-lg btn-block" type="submit" />
             </div>
 
         </form>

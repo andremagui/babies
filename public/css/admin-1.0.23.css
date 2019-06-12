@@ -23,7 +23,7 @@ html {
 @media(min-width:768px) {
 	#page-wrapper {
 		position: inherit;
-		margin: 0 0 0 250px;
+		margin: 0 auto;
 		padding: 0 30px;
 	}
 
@@ -531,4 +531,16 @@ i.fa-nomargin {
 
 .font-amatic{
     font-family: 'Amatic SC';
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.form-control {
+    font-size: 20px;
 }

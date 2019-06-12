@@ -40,7 +40,7 @@ INSERT INTO estado (descricao) VALUES
 ('Novo'),
 ('Seminovo'),
 ('Usado'),
-('Mal-Estado');
+('Mau Estado');
 
 CREATE TABLE faixaetaria (
 	id int NOT NULL AUTO_INCREMENT,

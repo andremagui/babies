@@ -10,7 +10,7 @@ router.all("/criar", wrap(async (req: express.Request, res: express.Response) =>
 	if (!u) {
 		res.redirect("/");
 	} else {
-		res.render("cadastro/alterar", { titulo: "Criar Produto", usuario: u, item: null });
+		res.render("cadastro/alterar", { titulo: "Adicionar Produto", usuario: u, item: null });
 	}
 }));
 
@@ -33,7 +33,7 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 	if (!u) {
 		res.redirect("/");
 	} else {
-		res.render("cadastro/listar", { titulo: "Gerenciar Produtos", usuario: u, lista: JSON.stringify(await Cadastro.listar(u)) });
+		res.render("cadastro/listar", { titulo: "Meus Produtos", usuario: u, lista: JSON.stringify(await Cadastro.listar(u)) });
 	}
 }));
 
